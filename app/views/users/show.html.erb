@@ -1,0 +1,7 @@
+
+<h1>Welcome <%=@user.username%></h1>
+<%= image_tag avatar_url(@user, 200) %>
+<P>Email Id: <%=@user.email%></P>
+<%= link_to 'Edit My Info' , edit_user_path %><br/>
+<%= link_to 'CREATE ARTICLE' , new_article_path %><br/>
+<%= link_to 'HOME' , root_path%>

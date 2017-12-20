@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#fetch profile image from a email id
+gem 'gravtastic'
 #has secure password method of rails
 gem 'bcrypt', '~> 3.1.7'
 

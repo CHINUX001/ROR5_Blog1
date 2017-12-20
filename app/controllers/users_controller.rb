@@ -10,13 +10,12 @@ class UsersController < ApplicationController
       
       if @user.save
         flash[:success] = "Welcome to the Sample App!"
-        redirect_to articles_path
+        redirect_to user_path(@user)
       else
         render 'new' 
       end
       
     end
-    
     
     def edit
     
@@ -25,16 +24,20 @@ class UsersController < ApplicationController
     end
     
 
-    # def update
-    #   @user =User.find(parmas[:id])
+    def update
+      @user =User.find(params[:id])
      
-    #  if @user.update(params_list)
-    #   flash[:success]="User information edited successfully"
-    #   redirect_to articles_path
-    #  else
-    #   render 'edit'
-    # end
+      if @user.update(params_list)
+      flash[:success]="User information edited successfully"
+      redirect_to user_path(@user)
+      else
+      render 'edit'
+      end
+    end
     
+    def show 
+      @user = User.find(params[:id]) #this will find the article recently created with id  and pass it show via article object 
+    end
     
     
 ############################### WHITE LISTS ###########################################################################################
