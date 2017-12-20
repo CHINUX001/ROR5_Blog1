@@ -1,0 +1,27 @@
+
+<% if @user.errors.any? %>
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+  <li> <%= msg %> </li>
+<% end %>
+</ul>
+<% end %>
+
+<%= form_for @article do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'ARTICLES INDEX' , articles_path %><br/>
+<%= link_to 'HOME' , root_path %>

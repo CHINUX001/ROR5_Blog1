@@ -1,0 +1,33 @@
+
+<% if @user.errors.any? %>
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+  <li> <%= msg %> </li>
+<% end %>
+</ul>
+<% end %>
+
+<%= form_for @user do |form| %>
+  <p>
+    <%= form.label :username %><br>
+    <%= form.text_field :username, placeholder:"Enter User Name" %>
+  </p>
+ 
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email, placeholder:"Enter Email Id" %>
+  </p>
+  
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password, placeholder:"Enter Password" %>
+  </p>
+ 
+  <p>
+    <%= form.submit(@user.new_record? ? "Sign up" : "Update account") %>
+  </p>
+  
+<% end %>
+
+<%= link_to 'ARTICLES INDEX' , articles_path %><br/>
+<%= link_to 'HOME' , root_path %>
