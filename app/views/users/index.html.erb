@@ -1,0 +1,16 @@
+
+<% @users.each do|user| %>
+  <div style="border:1px solid blue; padding:1% ; width:70%; margin:0 auto ">
+
+    <%= image_tag avatar_url(user, 100) %>
+    <h3>Articles Created By <%= user.username %>  are:</h3>
+    <% user.articles.each do|article| %>
+    <div>
+      <h4>Title: <%= article.title %> </h4>
+      <h4>Description: <%= article.description %> </h4>
+    </div>
+    <% end %>
+  </div>
+  <%= link_to 'CREATE ARTICLE' , new_article_path %><br/>
+  <%= link_to 'HOME' , root_path%>
+<%end%>
