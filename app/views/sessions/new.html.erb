@@ -1,0 +1,21 @@
+
+<h1> LogIn Form </h1>
+
+<p style="color:red"> <%= flash[:danger] %> </p>
+
+<%= form_for(:session , url: login_path) do|form| %>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email, placeholder:"Enter Email Id" %>
+  </p>
+
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password, placeholder:"Enter Password",autocomplete:"off"%>
+  </p>
+
+  <p>
+    <%= form.submit "Log In" %>
+  </p>
+
+<% end %>

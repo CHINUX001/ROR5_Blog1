@@ -1,4 +1,5 @@
 
+<p style="color:green"><%= flash[:success] %></p>
 <h1>Welcome <%=@user.username%></h1>
 <%= image_tag avatar_url(@user, 200) %>
 <P>Email Id: <%=@user.email%></P>
