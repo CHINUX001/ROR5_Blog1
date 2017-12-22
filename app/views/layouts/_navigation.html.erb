@@ -1,0 +1,17 @@
+<p style="color:green"><%= flash[:notice] %></p>
+
+<% current_user %>
+
+<% if logged_in? %>
+  <p style="color:green"><%= flash[:success] %></p>
+  <div>
+    <h2>Hi welcome <%= current_user.username %></h2>
+  </div>
+  <%= link_to 'CREATE ARTICLE' , new_article_path %><br/>
+  <%= link_to 'ARTICLES INDEX' , articles_path %><br/>
+  <%= link_to 'Log Out',  logout_path, method: :delete  %>
+<% else %>
+  <p style="color:red"><%= flash[:danger] %></p>
+  <%= link_to 'Sign In', login_path %><log><br/>
+  <%= link_to 'Sign Up',  new_user_path %><br/>
+<% end %>

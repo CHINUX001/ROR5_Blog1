@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+
+
     
     def index
       @articles = Article.all
@@ -10,12 +12,11 @@ class ArticlesController < ApplicationController
     def create
         # render plain: params[:article].inspect
     
-        @article = Article.new(params_list) #it cretes at article object with parameter passed from parameterlist method 
-        # @article.save
-        @article.user_id =1
+        @article = Article.new(params_list) #it cretes at article object with parameter passed from parameterlist method
+        @article.user_id = current_user.id
         if @article.save
           flash[:notice] ="Article created sucessfully"
-          redirect_to article_path(@article) #it passes the created  parameter
+          redirect_to article_path(@article) #it passes the created  object to show path of the article
         else
             render "new"
         end
